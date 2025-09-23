@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 // greet function with return value
 function greetWithReturn(name) {
     return `Hello, ${name}!`;
@@ -85,9 +83,9 @@ function processValue(value) {
 function getArea(shape) {
     switch (shape.kind) {
         case 'circle':
-            return Math.PI * shape.radius ** 2;
+            return Math.PI * Math.pow(shape.radius, 2);
         case 'square':
-            return shape.sideLength ** 2;
+            return Math.pow(shape.sideLength, 2);
         case 'triangle':
             return 0.5 * shape.base * shape.height;
         default:
@@ -100,7 +98,7 @@ function getArea(shape) {
 let a = null;
 let b = undefined;
 function greet(name) {
-    console.log("Hello", name ?? "Guest");
+    console.log("Hello", name !== null && name !== void 0 ? name : "Guest");
 }
 greet(); // Hello Guest
 greet("Shampa"); // Hello Shampa
@@ -109,4 +107,5 @@ let username;
 username = "Mahi";
 username = null;
 username = undefined;
+export {};
 //# sourceMappingURL=basics.js.map
