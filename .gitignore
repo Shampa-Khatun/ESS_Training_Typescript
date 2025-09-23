@@ -1,0 +1,13 @@
+# Node/TypeScript outputs
+
+node_modules/
+
+# System files
+*.lnk
+*.ini
+*.blf
+*.regtrans-ms
+*.LOG*
+*.dat
+.vscode/
+AppData/
