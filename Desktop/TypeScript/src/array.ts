@@ -116,3 +116,16 @@ nameAgeMap.Jack = 25; // no error
 //nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
 
 console.log(nameAgeMap);
+
+//interface
+interface Rectangle {
+  width: number;
+  height: number;
+}
+function calculateArea(rect: Rectangle) {
+    let width = rect.width;
+    let height = rect.height;
+    return width * height;
+}
+const myRect = { width: 10, height: 20 };
+console.log(calculateArea(myRect)); // 200

@@ -41,3 +41,18 @@ const person2 = new Person2("Jane");
 
 console.log(person.getName());
 
+//interface
+interface Rectangle {
+  width: number;
+  height: number;
+}
+function calculateArea(rect: Rectangle) {
+    let width = rect.width;
+    let height = rect.height;
+    return width * height;
+}
+const myRect = { width: 10, height: 20 };
+console.log(calculateArea(myRect));
+
+
+

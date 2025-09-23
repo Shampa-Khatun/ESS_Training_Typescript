@@ -1,16 +1,8 @@
-var player = /** @class */ (function () {
-    function player(n, a, c) {
-        this.name = n;
-        this.age = a;
-        this.country = c;
-    }
-    player.prototype.play = function () {
-        console.log("".concat(this.name, " from ").concat(this.country, " is playing"));
-    };
-    return player;
-}());
-var player1 = new player("Messi", 36, "Argentina");
-var player2 = new player("Ronaldo", 38, "Portugal");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var player_js_1 = require("./player.js");
+var player1 = new player_js_1.player("Messi", 36, "Argentina");
+var player2 = new player_js_1.player("Ronaldo", 38, "Portugal");
 var players = [];
 players.push(player1);
 players.push(player2);
@@ -41,3 +33,10 @@ var Person2 = /** @class */ (function () {
 }());
 var person2 = new Person2("Jane");
 console.log(person.getName());
+function calculateArea(rect) {
+    var width = rect.width;
+    var height = rect.height;
+    return width * height;
+}
+var myRect = { width: 10, height: 20 };
+console.log(calculateArea(myRect));
