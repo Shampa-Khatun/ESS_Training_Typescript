@@ -84,3 +84,35 @@ console.log(employee); // ["Bob", 25, "Developer"]
 let rgb: [number, number, ...number[]] = [255, 0, 0, 128, 64]; // Valid
 console.log(rgb); // [255, 0, 0, 128, 64]
 // let invalidRgb: [number, number, ...number[]] = [255]; //
+//readonly
+let user: readonly [number, string] = [101, "Mahi"];
+
+console.log(user[0]); // 101
+console.log(user[1]); // "Mahi"
+
+function getPosition(): readonly [number, number] {
+  return [10, 20];
+}
+
+const pos = getPosition();
+// pos[0] = 15; // ❌ Error
+console.log(pos); // [10, 20]
+
+
+//object types
+
+const car: { type: string, mileage?: number } = {
+  type: "Toyota"
+};
+
+car.mileage = 2000;
+
+console.log(car);
+
+const nameAgeMap: { [index: string]: number } = {};
+
+nameAgeMap.Jack = 25; // no error
+
+//nameAgeMap.Mark = "Fifty"; // Error: Type 'string' is not assignable to type 'number'.
+
+console.log(nameAgeMap);
