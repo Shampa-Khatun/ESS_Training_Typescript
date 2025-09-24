@@ -145,4 +145,3 @@ function printPerson<T extends Person>(person: T) {
 
 printPerson({ name: "Shampa", age: 25 }); 
 printPerson({ name: "Shahariar", age: 27, city: "Dhaka" })
-
