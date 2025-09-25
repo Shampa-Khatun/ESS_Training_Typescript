@@ -1,15 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.player = void 0;
-var player = /** @class */ (function () {
-    function player(n, a, c) {
+class player {
+    name;
+    age;
+    country;
+    constructor(n, a, c) {
         this.name = n;
         this.age = a;
         this.country = c;
     }
-    player.prototype.play = function () {
-        console.log("".concat(this.name, " from ").concat(this.country, " is playing"));
-    };
-    return player;
-}());
+    play() {
+        console.log(`${this.name} from ${this.country} is playing`);
+    }
+}
 exports.player = player;
+//# sourceMappingURL=player.js.map
