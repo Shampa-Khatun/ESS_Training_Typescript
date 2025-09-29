@@ -61,9 +61,65 @@ const personList = new List();
 personList.add({ name: "Shampa", age: 22 });
 personList.add({ name: "Mahi", age: 21 });
 personList.print();
+// Options Manager Class using the interface
+class OptionManager {
+    constructor(initialOptions = {}) {
+        this.options = initialOptions;
+    }
+    // Add or update option
+    set(name, value) {
+        this.options[name] = value;
+    }
+    // Get option value
+    get(name) {
+        return this.options[name];
+    }
+    // Remove option
+    remove(name) {
+        delete this.options[name];
+    }
+    // Check if option exists
+    has(name) {
+        return name in this.options;
+    }
+    // Toggle boolean option
+    toggle(name) {
+        if (typeof this.options[name] === 'boolean') {
+            this.options[name] = !this.options[name];
+        }
+        else {
+            throw new Error(`Option '${name}' is not boolean and cannot be toggled`);
+        }
+    }
+    // Print all options
+    print() {
+        console.log(this.options);
+    }
+}
+// ---------------- Usage ----------------
+// Use your existing inputOptions
 let inputOptions = {
     'disabled': false,
     'visible': true
 };
+// Create OptionManager instance
+const manager = new OptionManager(inputOptions);
+// Print initial options
+manager.print();
+// Output: { disabled: false, visible: true }
+// Toggle a boolean option
+manager.toggle('disabled');
+manager.print();
+// Output: { disabled: true, visible: true }
+// Check existence
+console.log(manager.has('visible')); // true
+// Remove an option
+manager.remove('visible');
+manager.print();
+// Output: { disabled: true }
+// Add new option
+manager.set('readonly', false);
+manager.print();
 export {};
+// Output: { disabled: true, readonly: false }
 //# sourceMappingURL=genInterface.js.map

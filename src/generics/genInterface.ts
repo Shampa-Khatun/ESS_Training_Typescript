@@ -91,12 +91,85 @@ personList.print();
 // Warning: remove will only work if reference is same
 
 //it describes an index type
+//Eta onek useful for dynamic objects jekhane key age thekei fixed na
+// Use your existing interface
 interface Options<T> {
     [name: string]: T
 }
 
+// Options Manager Class using the interface
+class OptionManager<T> {
+    private options: Options<T>;
+
+    constructor(initialOptions: Options<T> = {}) {
+        this.options = initialOptions;
+    }
+
+    // Add or update option
+    set(name: string, value: T): void {
+        this.options[name] = value;
+    }
+
+    // Get option value
+    get(name: string): T | undefined {
+        return this.options[name];
+    }
+
+    // Remove option
+    remove(name: string): void {
+        delete this.options[name];
+    }
+
+    // Check if option exists
+    has(name: string): boolean {
+        return name in this.options;
+    }
+
+    // Toggle boolean option
+    toggle(name: string): void {
+        if (typeof this.options[name] === 'boolean') {
+            this.options[name] = !this.options[name] as T;
+        } else {
+            throw new Error(`Option '${name}' is not boolean and cannot be toggled`);
+        }
+    }
+
+    // Print all options
+    print(): void {
+        console.log(this.options);
+    }
+}
+
+// ---------------- Usage ----------------
+
+// Use your existing inputOptions
 let inputOptions: Options<boolean> = {
     'disabled': false,
     'visible': true
 };
+
+// Create OptionManager instance
+const manager = new OptionManager<boolean>(inputOptions);
+
+// Print initial options
+manager.print(); 
+// Output: { disabled: false, visible: true }
+
+// Toggle a boolean option
+manager.toggle('disabled');
+manager.print(); 
+// Output: { disabled: true, visible: true }
+
+// Check existence
+console.log(manager.has('visible')); // true
+
+// Remove an option
+manager.remove('visible');
+manager.print(); 
+// Output: { disabled: true }
+
+// Add new option
+manager.set('readonly', false);
+manager.print(); 
+// Output: { disabled: true, readonly: false }
 

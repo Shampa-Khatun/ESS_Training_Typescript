@@ -62,7 +62,65 @@ var personList = new List();
 personList.add({ name: "Shampa", age: 22 });
 personList.add({ name: "Mahi", age: 21 });
 personList.print();
+// Options Manager Class using the interface
+var OptionManager = /** @class */ (function () {
+    function OptionManager(initialOptions) {
+        if (initialOptions === void 0) { initialOptions = {}; }
+        this.options = initialOptions;
+    }
+    // Add or update option
+    OptionManager.prototype.set = function (name, value) {
+        this.options[name] = value;
+    };
+    // Get option value
+    OptionManager.prototype.get = function (name) {
+        return this.options[name];
+    };
+    // Remove option
+    OptionManager.prototype.remove = function (name) {
+        delete this.options[name];
+    };
+    // Check if option exists
+    OptionManager.prototype.has = function (name) {
+        return name in this.options;
+    };
+    // Toggle boolean option
+    OptionManager.prototype.toggle = function (name) {
+        if (typeof this.options[name] === 'boolean') {
+            this.options[name] = !this.options[name];
+        }
+        else {
+            throw new Error("Option '".concat(name, "' is not boolean and cannot be toggled"));
+        }
+    };
+    // Print all options
+    OptionManager.prototype.print = function () {
+        console.log(this.options);
+    };
+    return OptionManager;
+}());
+// ---------------- Usage ----------------
+// Use your existing inputOptions
 var inputOptions = {
     'disabled': false,
     'visible': true
 };
+// Create OptionManager instance
+var manager = new OptionManager(inputOptions);
+// Print initial options
+manager.print();
+// Output: { disabled: false, visible: true }
+// Toggle a boolean option
+manager.toggle('disabled');
+manager.print();
+// Output: { disabled: true, visible: true }
+// Check existence
+console.log(manager.has('visible')); // true
+// Remove an option
+manager.remove('visible');
+manager.print();
+// Output: { disabled: true }
+// Add new option
+manager.set('readonly', false);
+manager.print();
+// Output: { disabled: true, readonly: false }
