@@ -18,3 +18,4 @@ function prop<T, K extends keyof T>(obj: T, key: K) {
 
 let str = prop({ name: 'John' }, 'name');
 console.log(str);
+
