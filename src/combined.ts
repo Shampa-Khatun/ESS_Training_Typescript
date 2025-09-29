@@ -129,3 +129,5 @@ function greet2(name?: string) {
 console.log(greet2("Shampa")); 
 console.log(greet2(""));       
 console.log(greet2());         
+
+
