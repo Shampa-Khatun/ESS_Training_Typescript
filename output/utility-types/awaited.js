@@ -22,5 +22,4 @@ function getUser() {
     });
 }
 export {};
-// { id: number; name: string }
 //# sourceMappingURL=awaited.js.map

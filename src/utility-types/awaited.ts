@@ -31,3 +31,21 @@ async function getUser() {
 }
 type User = Awaited<ReturnType<typeof getUser>>;
 // { id: number; name: string }
+
+//complex
+
+// custom thenable type (promise-like object)
+interface MyThenable {
+  then(onfulfilled: (value: Promise<{ id: number } | string>) => void): void;
+}
+
+// main complex type
+type Complex = Promise<
+  | number
+  | Promise<string>
+  | MyThenable
+  | null
+>;
+
+// unwrap using Awaited
+type Result = Awaited<Complex>;
