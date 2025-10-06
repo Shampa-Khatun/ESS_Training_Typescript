@@ -1,7 +1,7 @@
 // generic is a reusable block of code which can be used with different types
 const addID = (obj) => {
     let id = Math.random().toString(16);
-    return Object.assign(Object.assign({}, obj), { id });
+    return { ...obj, id };
 };
 let user = addID({
     name: "shampa",
@@ -20,6 +20,8 @@ const response1 = {
 console.log("API Response:", response1);
 // generic with class
 class NamedValue {
+    name;
+    _value;
     constructor(name) {
         this.name = name;
     }

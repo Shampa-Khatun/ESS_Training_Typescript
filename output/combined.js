@@ -5,7 +5,7 @@ var Role;
     Role[Role["User"] = 1] = "User";
 })(Role || (Role = {}));
 function greet(name, role) {
-    return `Hello ${name} as ${role !== null && role !== void 0 ? role : "Guest"}`;
+    return `Hello ${name} as ${role ?? "Guest"}`;
 }
 console.log(greet("Shampa"));
 console.log(greet("Mahi", Role.Admin));
@@ -39,7 +39,7 @@ console.log(identity({ id: 7 }));
 function check(input) {
     if (input) {
         if (typeof input === "number") {
-            return Math.pow(input, 2);
+            return input ** 2;
         }
         else {
             return input.toUpperCase();
@@ -77,7 +77,7 @@ let u = { id: true, name: false, active: true };
 console.log(u);
 //Optional Parameter + Default + Nullish Coalescing
 function greet2(name) {
-    return "Hello " + (name !== null && name !== void 0 ? name : "Guest");
+    return "Hello " + (name ?? "Guest");
 }
 console.log(greet2("Shampa"));
 console.log(greet2(""));

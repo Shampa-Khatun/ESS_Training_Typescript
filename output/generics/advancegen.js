@@ -1,5 +1,8 @@
 function merge(obj1, obj2) {
-    return Object.assign(Object.assign({}, obj1), obj2);
+    return {
+        ...obj1,
+        ...obj2
+    };
 }
 let person = merge({ name: 'John' }, 
 //25    throw an error:Argument of type '25' is not assignable to parameter of type 'object'.

@@ -1,4 +1,3 @@
-var _a;
 let numbers = [1, 2, 3, 4, 5];
 let fruits = ["Apple", "Banana", "Mango"];
 console.log(numbers); // [1, 2, 3, 4, 5]
@@ -13,7 +12,7 @@ let matrix = [
     [4, 5, 6],
     [7, 8, 9]
 ];
-console.log((_a = matrix[1]) === null || _a === void 0 ? void 0 : _a[2]); // 6
+console.log(matrix[1]?.[2]); // 6
 const number2 = [1, 2, 3]; // inferred to type number[]
 numbers.push(4); // no error
 // comment line below out to see the successful assignment

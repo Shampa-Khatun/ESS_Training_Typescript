@@ -1,4 +1,7 @@
 export class player {
+    name;
+    age;
+    country;
     constructor(n, a, c) {
         this.name = n;
         this.age = a;

@@ -42,7 +42,7 @@ sendNotification([
 function area(a, b) {
     if (Array.isArray(a)) {
         // Regular polygon: Approx area = (n^2)/4 * cot(π/n) for simplicity, here sum as dummy
-        return a.reduce((sum, side) => sum + Math.pow(side, 2), 0);
+        return a.reduce((sum, side) => sum + side ** 2, 0);
     }
     else if (b !== undefined) {
         // Rectangle
@@ -64,7 +64,7 @@ function log(value, prefix) {
         return value.map(v => `[Array] ${v}`);
     }
     else if (typeof value === "boolean") {
-        return `${prefix !== null && prefix !== void 0 ? prefix : "Bool"}: ${value ? "YES" : "NO"}`;
+        return `${prefix ?? "Bool"}: ${value ? "YES" : "NO"}`;
     }
     else if (typeof value === "string") {
         return `Str: ${value}`;

@@ -1,7 +1,8 @@
 class Stack {
+    size;
+    elements = [];
     constructor(size) {
         this.size = size;
-        this.elements = [];
     }
     isEmpty() {
         return this.elements.length === 0;

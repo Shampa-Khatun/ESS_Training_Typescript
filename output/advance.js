@@ -1,4 +1,7 @@
 class CompanyEmployee {
+    name;
+    employeeID;
+    role;
     constructor(name, employeeID, role) {
         this.name = name;
         this.employeeID = employeeID;
@@ -27,9 +30,7 @@ const userData = handleResponse(userResponse);
 console.log(userData.name); // Shampa
 // Class with Generics + Default Types
 class DataStore {
-    constructor() {
-        this.items = [];
-    }
+    items = [];
     add(item) {
         this.items.push(item);
     }
@@ -47,9 +48,7 @@ console.log(stringStore.getAll());
 console.log(numberStore.getAll());
 // Generic repository for CRUD operations
 class Repository {
-    constructor() {
-        this.items = [];
-    }
+    items = [];
     add(item) {
         this.items.push(item);
     }

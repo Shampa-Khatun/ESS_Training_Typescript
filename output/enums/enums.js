@@ -64,6 +64,8 @@ const myTask = {
 console.log(myTask); // { title: 'Complete TypeScript project', status: 5 }
 //enums with classes
 class Job {
+    title;
+    status;
     constructor(title, status) {
         this.title = title;
         this.status = status;

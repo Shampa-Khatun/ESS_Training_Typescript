@@ -9,6 +9,7 @@ player1.play();
 player2.play();
 //public, private, protected
 class Person {
+    name;
     constructor(name) {
         this.name = name;
     }
@@ -19,6 +20,7 @@ class Person {
 const person = new Person("Jane");
 console.log(person.getName());
 class Person2 {
+    name;
     // name is a private member variable
     constructor(name) {
         this.name = name;

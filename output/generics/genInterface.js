@@ -5,9 +5,7 @@ let month = {
 console.log(month);
 // Generic List Class implementing Collection
 class List {
-    constructor() {
-        this.items = [];
-    }
+    items = [];
     // Add an item
     add(item) {
         this.items.push(item);
@@ -63,6 +61,7 @@ personList.add({ name: "Mahi", age: 21 });
 personList.print();
 // Options Manager Class using the interface
 class OptionManager {
+    options;
     constructor(initialOptions = {}) {
         this.options = initialOptions;
     }
